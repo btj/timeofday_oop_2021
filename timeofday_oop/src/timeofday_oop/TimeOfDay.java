@@ -11,19 +11,28 @@ package timeofday_oop;
 public class TimeOfDay {
 	
 	/**
-	 * @basic
+	 * @invar | 0 <= hours && hours <= 23
+	 * @invar | 0 <= minutes && minutes <= 59
 	 */
-	public int getHours() { throw new RuntimeException("Not yet implemented"); }
+	private int hours;
+	private int minutes;
 	
 	/**
 	 * @basic
 	 */
-	public int getMinutes() { throw new RuntimeException("Not yet implemented"); }
+	public int getHours() { return hours; }
+	
+	/**
+	 * @basic
+	 */
+	public int getMinutes() { return minutes; }
 
 	/**
 	 * @post | result == getHours() * 60 + getMinutes()
 	 */
-	public int getMinutesSinceMidnight() { throw new RuntimeException("Not yet implemented"); }
+	public int getMinutesSinceMidnight() {
+		return hours * 60 + minutes;
+	}
 
 	/**
 	 * Initializes this object so that it represents the time of day given by the given hours and minutes.
@@ -35,7 +44,13 @@ public class TimeOfDay {
 	 * @post | getMinutes() == minutes
 	 */
 	public TimeOfDay(int hours, int minutes) {
-		throw new RuntimeException("Not yet implemented");
+		if (hours < 0 || 23 < hours)
+			throw new IllegalArgumentException("`hours` is invalid");
+		if (minutes < 0 || 59 < minutes)
+			throw new IllegalArgumentException("`minutes` is invalid");
+		
+		this.hours = hours;
+		this.minutes = minutes;
 	}
 	
 }
