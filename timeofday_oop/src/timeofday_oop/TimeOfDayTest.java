@@ -12,6 +12,14 @@ class TimeOfDayTest {
 		assertEquals(11, myTimeOfDay.getHours());
 		assertEquals(24, myTimeOfDay.getMinutes());
 		assertEquals(11 * 60 + 24, myTimeOfDay.getMinutesSinceMidnight());
+		
+		myTimeOfDay.setHours(12);
+		assertEquals(12, myTimeOfDay.getHours());
+		assertEquals(24, myTimeOfDay.getMinutes());
+		
+		myTimeOfDay.setMinutes(44);
+		assertEquals(12, myTimeOfDay.getHours());
+		assertEquals(44, myTimeOfDay.getMinutes());
 	}
 
 }
